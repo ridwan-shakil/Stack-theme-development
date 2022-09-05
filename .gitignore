@@ -32,6 +32,12 @@
 #
 # -----------------------------------------------------------------
 
+# own gitignores 
+asstes/css
+assets/fonts
+assets/img
+assets/php
+
 # ignore everything in the root except the "wp-content" directory.
 httpdocs/*
 !httpdocs/wp-content/
