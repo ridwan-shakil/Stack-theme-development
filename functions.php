@@ -1,5 +1,5 @@
 <?php
-
+require_once(get_theme_file_path('/inc/kirki-customizer.php'));
 function  stack_setup_theme()
 {
     load_theme_textdomain('stack', get_template_directory_uri() . '/languages');
