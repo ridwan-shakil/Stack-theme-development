@@ -7,7 +7,12 @@
         <div class="contents text-center">
           <h2 class="head-title wow fadeInUp"><?php echo get_theme_mod('banner_heading') ?></h2>
           <div class="header-button wow fadeInUp" data-wow-delay="0.3s">
-            <a href="#services" class="btn btn-common">Explore</a>
+            <?php
+            if (get_theme_mod('banner_button_text')) :
+            ?>
+              <a href="<?php echo get_theme_mod('banner_button_url') ?>" class="btn btn-common banner-btn"><?php echo get_theme_mod('banner_button_text') ?></a>
+
+            <?php endif; ?>
           </div>
         </div>
         <div class="img-thumb text-center wow fadeInUp" data-wow-delay="0.6s">
