@@ -396,3 +396,73 @@ new \Kirki\Field\Repeater(
         ],
     ]
 );
+// ==============================
+// Services section 
+// ==============================
+new \Kirki\Section(
+    'video_section',
+    [
+        'title'       => esc_html__('Video section', 'stack'),
+        'panel'       => 'stack_pannel',
+        'priority'    => 160,
+    ]
+);
+new \Kirki\Field\Checkbox_Switch(
+    [
+        'settings'    => 'video_switch_setting',
+        'label'       => esc_html__('Show or hide this section', 'kirki'),
+        'section'     => 'video_section',
+        'default'     => 'on',
+        'choices'     => [
+            'on'  => esc_html__('Enable', 'kirki'),
+            'off' => esc_html__('Disable', 'kirki'),
+        ],
+    ]
+);
+new \Kirki\Field\URL(
+    [
+        'settings' => 'video_url_setting',
+        'label'    => esc_html__('URL Control', 'kirki'),
+        'section'  => 'video_section',
+        'default'  => 'https://youtu.be/EMTZUfIbiBk',
+        'priority' => 10,
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings' => 'video_text',
+        'label'    => esc_html__('Services title', 'stack'),
+        'section'  => 'video_section',
+        'default'  => esc_html__('OUR SERVICES
+        ', 'stack'),
+        'priority' => 10,
+        'transport' => 'auto',
+        'output'   => [
+            [
+                'element'  => 'h2.mt-3.wow.zoomIn.animated  ',
+                'function' => 'html',
+            ],
+        ]
+    ]
+);
+new \Kirki\Field\Background(
+    [
+        'settings'    => 'video_background_setting',
+        'label'       => esc_html__('Video section background', 'kirki'),
+        'section'     => 'video_section',
+        'default'     => [
+            'background-color'      => 'rgba(20,20,20,.8)',
+            'background-image'      => '',
+            'background-repeat'     => 'norepeat',
+            'background-position'   => 'center center',
+            'background-size'       => 'cover',
+            'background-attachment' => 'scroll',
+        ],
+        'transport'   => 'auto',
+        'output'      => [
+            [
+                'element' => '.video-promo ',
+            ],
+        ],
+    ]
+);
