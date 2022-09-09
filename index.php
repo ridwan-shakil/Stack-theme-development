@@ -23,20 +23,43 @@
   </div>
 </div>
 <!-- Hero Area End -->
-
 </header>
 <!-- Header Area wrapper End -->
+
+<!-- Featurs / about section  -->
 <?php get_template_part('template-parts/section', 'about'); ?>
+
+<!-- Services section  -->
 <?php get_template_part('template-parts/section', 'services'); ?>
+
+<!-- Video section  -->
 <?php get_template_part('template-parts/section', 'video'); ?>
+
+<!-- Team section  -->
 <?php get_template_part('template-parts/section', 'team'); ?>
+
+<!-- Counter section  -->
 <?php get_template_part('template-parts/section', 'counter'); ?>
+
+<!-- Pricing section  -->
 <?php get_template_part('template-parts/section', 'pricing'); ?>
+
+<!-- Skill section  -->
 <?php get_template_part('template-parts/section', 'skill'); ?>
+
+<!-- Portfolio section  -->
 <?php get_template_part('template-parts/section', 'portfolio'); ?>
+
+<!-- Testomonial section  -->
 <?php get_template_part('template-parts/section', 'testomonial'); ?>
+
+<!-- Blog section  -->
 <?php get_template_part('template-parts/section', 'blog'); ?>
+
+<!-- Clients section  -->
 <?php get_template_part('template-parts/section', 'clients'); ?>
+
+<!-- Contact section  -->
 <?php get_template_part('template-parts/section', 'contact'); ?>
 
 

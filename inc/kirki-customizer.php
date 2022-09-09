@@ -466,3 +466,156 @@ new \Kirki\Field\Background(
         ],
     ]
 );
+
+// ==============================
+// Team section 
+// ==============================
+new \Kirki\Section(
+    'team_section',
+    [
+        'title'       => esc_html__('Team section', 'stack'),
+        'panel'       => 'stack_pannel',
+        'priority'    => 160,
+    ]
+);
+new \Kirki\Field\Checkbox_Switch(
+    [
+        'settings'    => 'team_switch_setting',
+        'label'       => esc_html__('Show or hide this section', 'kirki'),
+        'section'     => 'team_section',
+        'default'     => 'on',
+        'choices'     => [
+            'on'  => esc_html__('Enable', 'kirki'),
+            'off' => esc_html__('Disable', 'kirki'),
+        ],
+    ]
+);
+
+// new \Kirki\Field\Radio_Buttonset(
+//     [
+//         'settings'    => 'team_alignment',
+//         'label'       => esc_html__('Alignment', 'stack'),
+//         'section'     => 'team_section',
+//         'default'     => 'Left',
+//         'priority'    => 10,
+//         'choices'     => [
+//             'left'   => esc_html__('Left', 'stack'),
+//             'center' => esc_html__('Center', 'stack'),
+//             'right'  => esc_html__('Right', 'stack'),
+//         ],
+//         'output'    => [
+//             [
+//                 'element'   => '',
+//                 'property'  => 'text-align',
+//             ]
+//         ]
+
+//     ]
+// );
+new \Kirki\Field\Select(
+    [
+        'settings'    => 'team_column_setting',
+        'label'       => esc_html__('Team member per row', 'stack'),
+        'section'     => 'team_section',
+        'default'     => 'col-md-6 col-lg-4 col-xs-12',
+        'placeholder' => esc_html__('Choose an option', 'stack'),
+        'choices'     => [
+            'col-md-3 col-lg-2 col-xs-12' => esc_html__('6 item', 'stack'),
+            'col-md-4 col-lg-3 col-xs-12' => esc_html__('4 item', 'stack'),
+            'col-md-6 col-lg-4 col-xs-12' => esc_html__('3 item', 'stack'),
+            'col-md-6 col-lg-6 col-xs-12' => esc_html__('2 item', 'stack'),
+            'col-md-12 col-lg-12 col-xs-12' => esc_html__('1 item', 'stack'),
+
+        ],
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings' => 'team_title',
+        'label'    => esc_html__('Team title', 'stack'),
+        'section'  => 'team_section',
+        'default'  => esc_html__('MEET OUR TEAM', 'stack'),
+        'priority' => 10,
+        'transport' => 'auto',
+        'output'   => [
+            [
+                'element'  => 'section#team h2  ',
+                'function' => 'html',
+            ],
+        ]
+    ]
+);
+new \Kirki\Field\Textarea(
+    [
+        'settings' => 'team_desc',
+        'label'    => esc_html__('Team description', 'stack'),
+        'section'  => 'team_section',
+        'default'  => esc_html__('A desire to help and empower others between community contributors in technology
+        began to grow in 2020.', 'stack'),
+        'transport' => 'auto',
+        'output'   => [
+            [
+                'element'  => ' section#team .section-header p',
+                'function' => 'html',
+            ],
+        ]
+    ]
+);
+new \Kirki\Field\Repeater(
+    [
+        'settings' => 'team_repeater_settings',
+        'label'    => esc_html__('Team members', 'stack'),
+        'section'  => 'team_section',
+        'priority' => 10,
+        'row_label'    => [
+            'type'  => 'field',
+            'value' => esc_html__('Your Custom Value', 'stack'),
+            'field' => 'team_subtitle',
+        ],
+        'button_label' => esc_html__('Add new team member ', 'stack'),
+        'default'  => [
+            [
+                // 'team_image'       => '',
+                'team_subtitle'    => esc_html__('DAVID SMITH', 'stack'),
+                'team_content'     => esc_html__('Chief Operating Officer', 'stack'),
+            ],
+
+
+        ],
+
+        'fields'   => [
+
+            'team_image'   => [
+                'type'    => 'image',
+                'label'       => esc_html__('Team member image', 'kirki'),
+                'default'     => '',
+                'choices'     => [
+                    'save_as' => 'array',
+                ],
+            ],
+            'team_subtitle'   => [
+                'type'        => 'text',
+                'label'       => esc_html__('Title', 'stack'),
+                'default'     => '',
+            ],
+            'team_content'   => [
+                'type'        => 'textarea',
+                'label'       => esc_html__('Content', 'stack'),
+                'default'     => '',
+            ],
+            'team_facebook'   => [
+                'type'        => 'url',
+                'label'       => esc_html__('Facebook Link', 'stack'),
+                'default'     => '',
+            ], 'team_twitter'   => [
+                'type'        => 'url',
+                'label'       => esc_html__('Twiter Link', 'stack'),
+                'default'     => '',
+            ], 'team_instagram'   => [
+                'type'        => 'url',
+                'label'       => esc_html__('Instagram Link', 'stack'),
+                'default'     => '',
+            ],
+        ],
+    ]
+);
