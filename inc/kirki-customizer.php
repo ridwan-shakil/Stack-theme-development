@@ -7,6 +7,7 @@ new \Kirki\Panel(
         'description' => esc_html__('Stack Theme options are here.', 'stack'),
     ]
 );
+
 // ==============================
 // Banner section 
 // ==============================
@@ -1039,5 +1040,88 @@ new \Kirki\Field\Text(
         'section'  => 'pricing_Table3',
         'default'  => esc_html__('GET IT', 'stack'),
         'priority' => 10,
+    ]
+);
+// Skills Section =======================
+
+new \Kirki\Section(
+    'skills_section',
+    [
+        'title'       => esc_html__('Skills section', 'stack'),
+        'panel'       => 'stack_pannel',
+        'priority'    => 160,
+    ]
+);
+new \Kirki\Field\Checkbox_Switch(
+    [
+        'settings'    => 'skills_switch_setting',
+        'label'       => esc_html__('Show or hide this section', 'stack'),
+        'section'     => 'skills_section',
+        'default'     => 'on',
+        'choices'     => [
+            'on'  => esc_html__('Enable', 'stack'),
+            'off' => esc_html__('Disable', 'stack'),
+        ],
+    ]
+);
+
+new \Kirki\Field\Image(
+    [
+        'settings'    => 'skills_image',
+        'label'       => esc_html__('Image', 'kirki'),
+        'section'     => 'skills_section',
+        'default'     => '',
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings' => 'skills_heading', // For showing data in the frontend
+        'label'    => esc_html__('skills Heading', 'stack'),
+        'section'  => 'skills_section',
+        'default'  => esc_html__('OUR SKILL', 'stack'),
+        'priority' => 10,
+        'transport' => 'postMessage',
+        'js_vars'   => [
+            [
+                'element'  => '',
+                'function' => 'html',
+            ],
+        ]
+    ]
+);
+
+new \Kirki\Field\Textarea(
+    [
+        'settings' => 'skills_desc',
+        'label'    => esc_html__('Skills Description', 'stack'),
+        'section'  => 'skills_section',
+        'default'  => esc_html__('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus architecto laudantium dolorem, aut aspernatur modi minima alias provident obcaecati! Minima odio porro nemo magnam dolore minus asperiores veniam dolorum est! Lorem ipsum dolor sit amet,', 'stack'),
+        'priority' => 10,
+    ]
+);
+new \Kirki\Field\Repeater(
+    [
+        'settings'     => 'skills_repeater',
+        'label'        => esc_html__('Skills', 'kirki'),
+        'section'      => 'skills_section',
+        'priority'     => 10,
+        'row_label'    => [
+            'type'  => 'field',
+            'value' => esc_html__('Your Custom Value', 'kirki'),
+            'field' => 'skill_title',
+        ],
+        'button_label' => esc_html__('Add New Skill', 'kirki'),
+        'fields'       => [
+            'skill_title'   => [
+                'type'        => 'text',
+                'label'       => esc_html__('Skill Title', 'kirki'),
+                'default'     => '',
+            ],
+            'skill_level'    => [
+                'type'        => 'number',
+                'label'       => esc_html__('Skill Level ( Out of 100% )', 'kirki'),
+                'default'     => '',
+            ],
+        ],
     ]
 );
