@@ -11,16 +11,16 @@
 
   /*Page Loader active
   ========================================================*/
-  $('#preloader').fadeOut();
+  // $('#preloader').fadeOut();
 
-  // Sticky Nav
-    $(window).on('scroll', function() {
-        if ($(window).scrollTop() > 100) {
-            $('.scrolling-navbar').addClass('top-nav-collapse');
-        } else {
-            $('.scrolling-navbar').removeClass('top-nav-collapse');
-        }
-    });
+  // // Sticky Nav
+  //   $(window).on('scroll', function() {
+  //       if ($(window).scrollTop() > 100) {
+  //           $('.scrolling-navbar').addClass('top-nav-collapse');
+  //       } else {
+  //           $('.scrolling-navbar').removeClass('top-nav-collapse');
+  //       }
+  //   });
 
     /* Auto Close Responsive Navbar on Click
     ========================================================*/

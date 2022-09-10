@@ -410,19 +410,19 @@ new \Kirki\Section(
 new \Kirki\Field\Checkbox_Switch(
     [
         'settings'    => 'video_switch_setting',
-        'label'       => esc_html__('Show or hide this section', 'kirki'),
+        'label'       => esc_html__('Show or hide this section', 'stack'),
         'section'     => 'video_section',
         'default'     => 'on',
         'choices'     => [
-            'on'  => esc_html__('Enable', 'kirki'),
-            'off' => esc_html__('Disable', 'kirki'),
+            'on'  => esc_html__('Enable', 'stack'),
+            'off' => esc_html__('Disable', 'stack'),
         ],
     ]
 );
 new \Kirki\Field\URL(
     [
         'settings' => 'video_url_setting',
-        'label'    => esc_html__('URL Control', 'kirki'),
+        'label'    => esc_html__('URL Control', 'stack'),
         'section'  => 'video_section',
         'default'  => 'https://youtu.be/EMTZUfIbiBk',
         'priority' => 10,
@@ -448,7 +448,7 @@ new \Kirki\Field\Text(
 new \Kirki\Field\Background(
     [
         'settings'    => 'video_background_setting',
-        'label'       => esc_html__('Video section background', 'kirki'),
+        'label'       => esc_html__('Video section background', 'stack'),
         'section'     => 'video_section',
         'default'     => [
             'background-color'      => 'rgba(20,20,20,.8)',
@@ -481,37 +481,16 @@ new \Kirki\Section(
 new \Kirki\Field\Checkbox_Switch(
     [
         'settings'    => 'team_switch_setting',
-        'label'       => esc_html__('Show or hide this section', 'kirki'),
+        'label'       => esc_html__('Show or hide this section', 'stack'),
         'section'     => 'team_section',
         'default'     => 'on',
         'choices'     => [
-            'on'  => esc_html__('Enable', 'kirki'),
-            'off' => esc_html__('Disable', 'kirki'),
+            'on'  => esc_html__('Enable', 'stack'),
+            'off' => esc_html__('Disable', 'stack'),
         ],
     ]
 );
 
-// new \Kirki\Field\Radio_Buttonset(
-//     [
-//         'settings'    => 'team_alignment',
-//         'label'       => esc_html__('Alignment', 'stack'),
-//         'section'     => 'team_section',
-//         'default'     => 'Left',
-//         'priority'    => 10,
-//         'choices'     => [
-//             'left'   => esc_html__('Left', 'stack'),
-//             'center' => esc_html__('Center', 'stack'),
-//             'right'  => esc_html__('Right', 'stack'),
-//         ],
-//         'output'    => [
-//             [
-//                 'element'   => '',
-//                 'property'  => 'text-align',
-//             ]
-//         ]
-
-//     ]
-// );
 new \Kirki\Field\Select(
     [
         'settings'    => 'team_column_setting',
@@ -587,7 +566,7 @@ new \Kirki\Field\Repeater(
 
             'team_image'   => [
                 'type'    => 'image',
-                'label'       => esc_html__('Team member image', 'kirki'),
+                'label'       => esc_html__('Team member image', 'stack'),
                 'default'     => '',
                 'choices'     => [
                     'save_as' => 'array',
@@ -617,5 +596,448 @@ new \Kirki\Field\Repeater(
                 'default'     => '',
             ],
         ],
+    ]
+);
+// ==============================
+// Counter section 
+// ==============================
+new \Kirki\Section(
+    'counter_section',
+    [
+        'title'       => esc_html__('Counter section', 'stack'),
+        'panel'       => 'stack_pannel',
+        'priority'    => 160,
+    ]
+);
+new \Kirki\Field\Checkbox_Switch(
+    [
+        'settings'    => 'counter_switch_setting',
+        'label'       => esc_html__('Show or hide this section', 'stack'),
+        'section'     => 'counter_section',
+        'default'     => 'on',
+        'choices'     => [
+            'on'  => esc_html__('Enable', 'stack'),
+            'off' => esc_html__('Disable', 'stack'),
+        ],
+    ]
+);
+
+new \Kirki\Field\Repeater(
+    [
+        'settings' => 'counter_repeater_settings',
+        'label'    => esc_html__('Team members', 'stack'),
+        'section'  => 'counter_section',
+        'priority' => 10,
+        'row_label'    => [
+            'type'  => 'field',
+            'value' => esc_html__('Your Custom Value', 'stack'),
+            'field' => 'counter_subtitle',
+        ],
+        'button_label' => esc_html__('Add new team member ', 'stack'),
+
+        'fields'   => [
+            'counter_icon' => array(
+                'type'        => 'select',
+                'label'       => esc_attr__('Counter Icon', 'stack'),
+                'default'     =>  '',
+                'choices'     => [
+                    'lni-users'      => esc_html__('User icon', 'stack'),
+                    'lni-emoji-smile' => esc_html__('Smile emoji', 'stack'),
+                    'lni-download'   => esc_html__('Download icon', 'stack'),
+                    'lni-thumbs-up'  => esc_html__('Thumbs up icon', 'stack'),
+                ],
+            ),
+
+            'counter_number'   => [
+                'type'        => 'text',
+                'label'       => esc_html__('Number', 'stack'),
+                'description' => esc_html__('Use numbers only', 'stack'),
+                'default'     => '',
+            ],
+            'counter_title'   => [
+                'type'        => 'text',
+                'label'       => esc_html__('Title', 'stack'),
+                'default'     => '',
+            ],
+
+
+        ],
+    ]
+);
+new \Kirki\Field\Background(
+    [
+        'settings'    => 'counter_background',
+        'label'       => esc_html__('Counter Background', 'stack'),
+        'section'     => 'counter_section',
+        'default'     => [
+            'background-color'      => 'rgba(20,20,20,.8)',
+            'background-image'      => '',
+            'background-repeat'     => 'norepeat',
+            'background-position'   => 'center center',
+            'background-size'       => 'cover',
+            'background-attachment' => 'scroll',
+        ],
+        'transport'   => 'auto',
+        'output'      => [
+            [
+                'element' => '#counter',
+            ],
+        ],
+    ]
+);
+
+// ==============================
+// Pricing section 
+// ==============================
+new \Kirki\Section(
+    'pricing_section',
+    [
+        'title'       => esc_html__('Pricing section', 'stack'),
+        'panel'       => 'stack_pannel',
+        'priority'    => 160,
+    ]
+);
+new \Kirki\Field\Checkbox_Switch(
+    [
+        'settings'    => 'pricing_switch_setting',
+        'label'       => esc_html__('Show or hide this section', 'stack'),
+        'section'     => 'pricing_section',
+        'default'     => 'on',
+        'choices'     => [
+            'on'  => esc_html__('Enable', 'stack'),
+            'off' => esc_html__('Disable', 'stack'),
+        ],
+    ]
+);
+
+new \Kirki\Field\Text(
+    [
+        'settings' => 'pricing_heading',
+        'label'    => esc_html__('Pricing Heading', 'stack'),
+        'section'  => 'pricing_section',
+        'default'  => esc_html__('BEST PRICING', 'stack'),
+        'priority' => 10,
+        'transport' => 'auto',
+        'output'   => [
+            [
+                'element'  => 'section#pricing .section-title  ',
+                'function' => 'html',
+            ],
+        ]
+    ]
+);
+new \Kirki\Field\Textarea(
+    [
+        'settings' => 'pricing_desc',
+        'label'    => esc_html__('Pricing description', 'stack'),
+        'section'  => 'pricing_section',
+        'default'  => esc_html__('A desire to help and empower others between community contributors in technology began to grow in 2020.', 'stack'),
+        'transport' => 'auto',
+        'output'   => [
+            [
+                'element'  => 'section#pricing .section-header p ',
+                'function' => 'html',
+            ],
+        ]
+    ]
+);
+// new \Kirki\Field\Repeater(
+//     [
+//         'settings' => 'pricing_repeater_settings',
+//         'label'    => esc_html__('Pricing Tables', 'stack'),
+//         'section'  => 'pricing_section',
+//         'priority' => 10,
+//         'row_label'    => [
+//             'type'  => 'field',
+//             'value' => esc_html__('Your Custom Value', 'stack'),
+//             'field' => 'pricing_subtitle',
+//         ],
+//         'default'  => [
+//             [
+//                 'pricing_title'       => esc_html__('Basic', 'stack'),
+//                 'pricing_currency'   => esc_html__('$', 'stack'),
+//                 'pricing_duration'   => esc_html__('Month', 'stack'),
+//             ],
+//             [
+//                 'pricing_title'       => esc_html__('Professonal', 'stack'),
+//                 'pricing_currency'   => esc_html__('$', 'stack'),
+//                 'pricing_duration'   => esc_html__('Month', 'stack'),
+//             ],
+//             [
+//                 'pricing_title'       => esc_html__('Expert', 'stack'),
+//                 'pricing_currency'   => esc_html__('$', 'stack'),
+//                 'pricing_duration'   => esc_html__('Month', 'stack'),
+//             ],
+
+
+//         ],
+
+//         'fields'   => [
+
+
+//             'pricing_title'   => [
+//                 'type'        => 'text',
+//                 'label'       => esc_html__('Title', 'stack'),
+
+//             ],
+//             'pricing_currency'   => [
+//                 'type'        => 'text',
+//                 'label'       => esc_html__('Currency sign', 'stack'),
+//                 'default'     => '$',
+//             ],
+//             'pricing_value'   => [
+//                 'type'        => 'text',
+//                 'label'       => esc_html__('Price', 'stack'),
+//                 'default'     => '',
+//             ],
+//             'pricing_duration'   => [
+//                 'type'        => 'select',
+//                 'label'       => esc_html__('Duration', 'stack'),
+//                 'default'     => 'Month',
+//                 'choices'     => [
+//                     'Month' => esc_html__('Month', 'stack'),
+//                     'Year' => esc_html__('Year', 'stack'),
+//                 ],
+//             ],
+
+//         ],
+//     ]
+// );
+// =============================
+// This section will show inside of pricing section 
+// =============================
+// Basic pricing table 
+new \Kirki\Section(
+    'pricing_Table1',
+    [
+        'title'       => esc_html__('Pricing table 1', 'stack'),
+        // 'panel'       => 'stack_pannel',
+        'section'  => 'pricing_section',
+        'priority'    => 160,
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings' => 'basic_title',
+        'label'    => esc_html__('Table title', 'stack'),
+        'section'  => 'pricing_Table1',
+        'default'  => esc_html__('Basic', 'stack'),
+        'priority' => 10,
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings' => 'basic_currency',
+        'label'    => esc_html__('Currency sign', 'stack'),
+        'section'  => 'pricing_Table1',
+        'default'  => esc_html__('$', 'stack'),
+        'priority' => 10,
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings' => 'basic_value',
+        'label'    => esc_html__('Price', 'stack'),
+        'section'  => 'pricing_Table1',
+        'default'  => esc_html__('', 'stack'),
+        'priority' => 10,
+    ]
+);
+
+new \Kirki\Field\Select(
+    [
+        'settings'    => 'basic_duration',
+        'label'       => esc_html__('Duration', 'stack'),
+        'section'     => 'pricing_Table1',
+        'default'     => 'Month',
+        'placeholder' => esc_html__('Choose time duration', 'stack'),
+        'choices'     => [
+            'Month' => esc_html__('Month', 'stack'),
+            'Year' => esc_html__('Year', 'stack'),
+        ],
+    ]
+);
+new \Kirki\Field\Multicheck(
+    [
+        'settings' => 'basic_featurs',
+        'label'    => esc_html__('Featurs', 'stack'),
+        'section'  => 'pricing_Table1',
+        'default'  => [''],
+        'priority' => 10,
+        'choices'  => [
+            'Business Analyzing'     => esc_html__('Business Analyzing', 'stack'),
+            '24/7 Tech Suport'       => esc_html__('24/7 Tech Suport', 'stack'),
+            'Operational Excellence' => esc_html__('Operational Excellence', 'stack'),
+            'Business Idea Ready'    => esc_html__('Business Idea Ready', 'stack'),
+            '2 Database'             => esc_html__('2 Database', 'stack'),
+            'Customer Support'       => esc_html__('Customer Support', 'stack'),
+        ],
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings' => 'basic_btn_txt',
+        'label'    => esc_html__('Button text', 'stack'),
+        'section'  => 'pricing_Table1',
+        'default'  => esc_html__('GET IT', 'stack'),
+        'priority' => 10,
+    ]
+);
+
+// Professonal pricing table =======================
+
+new \Kirki\Section(
+    'pricing_Table2',
+    [
+        'title'       => esc_html__('Pricing table 2', 'stack'),
+        // 'panel'       => 'stack_pannel',
+        'section'  => 'pricing_section',
+        'priority'    => 160,
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings' => 'professonal_title',
+        'label'    => esc_html__('Table title', 'stack'),
+        'section'  => 'pricing_Table2',
+        'default'  => esc_html__('professonal', 'stack'),
+        'priority' => 10,
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings' => 'professonal_currency',
+        'label'    => esc_html__('Currency sign', 'stack'),
+        'section'  => 'pricing_Table2',
+        'default'  => esc_html__('$', 'stack'),
+        'priority' => 10,
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings' => 'professonal_value',
+        'label'    => esc_html__('Price', 'stack'),
+        'section'  => 'pricing_Table2',
+        'default'  => esc_html__('', 'stack'),
+        'priority' => 10,
+    ]
+);
+
+new \Kirki\Field\Select(
+    [
+        'settings'    => 'professonal_duration',
+        'label'       => esc_html__('Duration', 'stack'),
+        'section'     => 'pricing_Table2',
+        'default'     => 'Month',
+        'placeholder' => esc_html__('Choose time duration', 'stack'),
+        'choices'     => [
+            'Month' => esc_html__('Month', 'stack'),
+            'Year' => esc_html__('Year', 'stack'),
+        ],
+    ]
+);
+new \Kirki\Field\Multicheck(
+    [
+        'settings' => 'professonal_featurs',
+        'label'    => esc_html__('Featurs', 'stack'),
+        'section'  => 'pricing_Table2',
+        'default'  => [''],
+        'priority' => 10,
+        'choices'  => [
+            'Business Analyzing'     => esc_html__('Business Analyzing', 'stack'),
+            '24/7 Tech Suport'       => esc_html__('24/7 Tech Suport', 'stack'),
+            'Operational Excellence' => esc_html__('Operational Excellence', 'stack'),
+            'Business Idea Ready'    => esc_html__('Business Idea Ready', 'stack'),
+            '2 Database'             => esc_html__('2 Database', 'stack'),
+            'Customer Support'       => esc_html__('Customer Support', 'stack'),
+        ],
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings' => 'professonal_btn_txt',
+        'label'    => esc_html__('Button text', 'stack'),
+        'section'  => 'pricing_Table2',
+        'default'  => esc_html__('GET IT', 'stack'),
+        'priority' => 10,
+    ]
+);
+
+// Expert pricing table =======================
+
+new \Kirki\Section(
+    'pricing_Table3',
+    [
+        'title'       => esc_html__('Pricing table 3', 'stack'),
+        // 'panel'       => 'stack_pannel',
+        'section'  => 'pricing_section',
+        'priority'    => 160,
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings' => 'Expert_title',
+        'label'    => esc_html__('Table title', 'stack'),
+        'section'  => 'pricing_Table3',
+        'default'  => esc_html__('Expert', 'stack'),
+        'priority' => 10,
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings' => 'Expert_currency',
+        'label'    => esc_html__('Currency sign', 'stack'),
+        'section'  => 'pricing_Table3',
+        'default'  => esc_html__('$', 'stack'),
+        'priority' => 10,
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings' => 'Expert_value',
+        'label'    => esc_html__('Price', 'stack'),
+        'section'  => 'pricing_Table3',
+        'default'  => esc_html__('', 'stack'),
+        'priority' => 10,
+    ]
+);
+
+new \Kirki\Field\Select(
+    [
+        'settings'    => 'Expert_duration',
+        'label'       => esc_html__('Duration', 'stack'),
+        'section'     => 'pricing_Table3',
+        'default'     => 'Month',
+        'placeholder' => esc_html__('Choose time duration', 'stack'),
+        'choices'     => [
+            'Month' => esc_html__('Month', 'stack'),
+            'Year' => esc_html__('Year', 'stack'),
+        ],
+    ]
+);
+new \Kirki\Field\Multicheck(
+    [
+        'settings' => 'Expert_featurs',
+        'label'    => esc_html__('Featurs', 'stack'),
+        'section'  => 'pricing_Table3',
+        'default'  => [''],
+        'priority' => 10,
+        'choices'  => [
+            'Business Analyzing'     => esc_html__('Business Analyzing', 'stack'),
+            '24/7 Tech Suport'       => esc_html__('24/7 Tech Suport', 'stack'),
+            'Operational Excellence' => esc_html__('Operational Excellence', 'stack'),
+            'Business Idea Ready'    => esc_html__('Business Idea Ready', 'stack'),
+            '2 Database'             => esc_html__('2 Database', 'stack'),
+            'Customer Support'       => esc_html__('Customer Support', 'stack'),
+        ],
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings' => 'Expert_btn_txt',
+        'label'    => esc_html__('Button text', 'stack'),
+        'section'  => 'pricing_Table3',
+        'default'  => esc_html__('GET IT', 'stack'),
+        'priority' => 10,
     ]
 );
