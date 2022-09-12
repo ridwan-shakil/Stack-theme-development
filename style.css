@@ -92,6 +92,13 @@ input#submit {
 }
 
 input#submit:hover {
-    /* color: black; */
     background-color: black;
+}
+
+/* contact form  */
+#message {
+    height: 100px;
+}
+input#email {
+    width: 100% !important;
 }

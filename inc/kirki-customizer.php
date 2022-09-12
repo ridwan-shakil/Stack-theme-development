@@ -1468,3 +1468,93 @@ new \Kirki\Field\Repeater(
         ],
     ]
 );
+
+new \Kirki\Field\Text(
+    [
+        'settings' => 'contact_form', // For showing data in the frontend
+        'label'    => esc_html__('Contact form shortcode', 'stack'),
+        'section'  => 'contact_section',
+        'default'  => esc_html__('[contact-form-7 id="87" title="Contact form 1"]', 'stack'),
+        'priority' => 10,
+        // 'transport' => 'postMessage',
+        // 'js_vars'   => [
+        //     [
+        //         'element'  => '',
+        //         'function' => 'html',
+        //     ],
+        // ]
+    ]
+);
+
+// =======================
+// Theme settings color 
+// =======================
+
+//colors
+new \Kirki\Field\Color(
+    [
+        'settings'    => 'stack_background_color',
+        'label'       => esc_html__('Background Color', 'stack'),
+        'section'     => 'colors',
+        'default'     => '#ffffff',
+        'priority'    => 20,
+    ]
+);
+new \Kirki\Field\Color(
+    [
+        'settings'    => 'stack_primery_color',
+        'label'       => esc_html__('Primery Color', 'stack'),
+        'section'     => 'colors',
+        'default'     => '#3d60f4',
+        'priority'    => 20,
+    ]
+);
+// ===========================
+// Typography section 
+// ===========================
+
+new \Kirki\Section(
+    'typography_options',
+    [
+        'title'       => esc_html__('Typography', 'stack'),
+        'priority'    => 52,
+    ]
+);
+new \Kirki\Field\Typography(
+    [
+        'settings'    => 'stack_headings_font',
+        'label'       => esc_html__('All heading text', 'kirki'),
+        'section'     => 'typography_options',
+        'priority'    => 10,
+        'transport'   => 'auto',
+        'default'     => [
+            'font-family'     => 'Roboto',
+
+        ],
+        'output'      => [
+            [
+                'element' => 'h1,h2,h3,h4,h5,h6',
+            ],
+        ],
+    ]
+);
+
+
+function stack_theme_css()
+{
+?>
+    <style>
+        body {
+            background-color: <?php echo get_theme_mod('stack_background_color'); ?>
+        }
+
+        :root {
+            --primery: <?php echo get_theme_mod('stack_primery_color'); ?>;
+            --headingfont: <?php echo get_theme_mod('stack_headings_font'); ?>
+        }
+    </style>
+
+<?php
+}
+add_action('wp_head', 'stack_theme_css');
+// ================================================
