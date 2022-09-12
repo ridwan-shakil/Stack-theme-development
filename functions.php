@@ -48,3 +48,79 @@ function stack_scripts()
     wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), '', true);
 }
 add_action('wp_enqueue_scripts', 'stack_scripts');
+
+// ======================= Comment form rearrange ====================
+function move_comment_field($fields)
+{
+
+    $comment_field = $fields['comment'];
+    unset($fields['comment']);
+    $fields['comment'] = $comment_field;
+
+    $comment_field = $fields['cookies'];
+    unset($fields['cookies']);
+    $fields['cookies'] = $comment_field;
+    return $fields;
+}
+add_filter('comment_form_fields', 'move_comment_field');
+
+// Change default fields, add "placeholder" and change type attributes.
+function Halim_comment_placeholders($fields)
+{
+    $fields['author'] = str_replace(
+        '<input',
+        '<input placeholder="'
+            . _x(
+                'Name',
+                'halim'
+            )
+            . '"',
+        $fields['author']
+    );
+    $fields['email'] = str_replace(
+        '<input id="email" name="email" type="text"',
+        /* We use a proper type attribute to make use of the browser’s
+         * validation, and to get the matching keyboard on smartphones.
+         */
+        '<input type="email" placeholder="Email"  id="email" name="email"',
+        $fields['email']
+    );
+    $fields['url'] = str_replace(
+        '<input id="url" name="url" type="text"',
+        // Again: a better 'type' attribute value.
+        '<input placeholder="Website" id="url" name="url" type="url"',
+        $fields['url']
+    );
+
+
+    return $fields;
+}
+add_filter('comment_form_default_fields', 'Halim_comment_placeholders');
+
+//  add placeholder text to comment field
+function placeholder_comment_form_field($fields)
+{
+    $replace_comment = __('Your Comment', 'halim');
+
+    $fields['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . _x('Comment', 'noun') .
+        '</label><textarea id="comment" name="comment" cols="45" rows="6" placeholder="' . $replace_comment . '" aria-required="true"></textarea></p>';
+
+    return $fields;
+}
+add_filter('comment_form_defaults', 'placeholder_comment_form_field', 20);
+
+function stack_theme_widget_init()
+{
+    // Right sidebar
+    register_sidebar(array(
+        'name'           => __('Right sidebar', 'textdomain'),
+        'id'             => 'right-sidebar',
+        'description'    => __('Widgets in this area will be shown on the right side', 'halim'),
+        'before_widget'  => '<div class="widgets">',
+        'after_widget'   => '</div>',
+        'before_title'   => '<h4>',
+        'after_title'    => '</h4>',
+    ));
+}
+
+add_action('widgets_init', 'stack_theme_widget_init');

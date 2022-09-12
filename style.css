@@ -14,3 +14,84 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: stack
 This theme, like WordPress, is licensed under the GPL.
 */
+/* comment form  */
+form#commentform label {
+    display: none;
+}
+
+form#commentform p {
+    margin: 5px 5px 5px 0px;
+    display: inline;
+}
+input[type=text] {
+
+}
+input#author {
+    width: 32%;
+    display: inline;
+    border: 1px solid #cfcfcf;
+    padding: 7px 7px 7px 15px;
+    border-radius: 5px;
+}
+
+input#email {
+    width: 32%;
+    display: inline;
+    border: 1px solid #cfcfcf;
+    padding: 7px 7px 7px 15px;
+    border-radius: 5px;
+
+}
+input#url {
+    width: 32%;
+    display: inline;
+    border: 0.5px solid #cfcfcf;
+    padding: 7px 7px 7px 15px;
+    border-radius: 5px;
+
+}
+textarea#comment {
+    display: block;
+    width: 99%;
+    margin: 10px 0px 10px 0px;
+    border: 1px solid #cfcfcf;
+    border-radius: 5px;
+    padding: 7px 7px 7px 15px;
+    height: 229px;
+}
+textarea#comment:focus {
+    border-color: #3d60f4;
+}
+input#wp-comment-cookies-consent {
+    display: none;
+}
+p.comment-notes {
+    display: none;
+}
+
+/* span#email-notes {
+    display: none;
+} */
+
+/* span.required-field-message {
+    display: none;
+} */
+input#submit  {
+    padding: 8px 25px 8px 25px;
+    border-radius: 50px;
+    margin-left: -10px;
+    color: white;
+    background-color: #3d60f4;
+    /* position: relative; */
+    z-index: 1;
+    text-transform: uppercase;
+}
+input#submit {
+    border: 0px;
+    cursor: pointer;
+}
+
+input#submit:hover {
+    /* color: black; */
+    background-color: black;
+}

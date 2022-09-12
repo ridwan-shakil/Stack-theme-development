@@ -415,8 +415,8 @@ new \Kirki\Field\Checkbox_Switch(
         'section'     => 'video_section',
         'default'     => 'on',
         'choices'     => [
-            'on'  => esc_html__('Enable', 'stack'),
-            'off' => esc_html__('Disable', 'stack'),
+            'on'  => esc_html__('Show', 'stack'),
+            'off' => esc_html__('Hide', 'stack'),
         ],
     ]
 );
@@ -486,8 +486,8 @@ new \Kirki\Field\Checkbox_Switch(
         'section'     => 'team_section',
         'default'     => 'on',
         'choices'     => [
-            'on'  => esc_html__('Enable', 'stack'),
-            'off' => esc_html__('Disable', 'stack'),
+            'on'  => esc_html__('Show', 'stack'),
+            'off' => esc_html__('Hide', 'stack'),
         ],
     ]
 );
@@ -617,8 +617,8 @@ new \Kirki\Field\Checkbox_Switch(
         'section'     => 'counter_section',
         'default'     => 'on',
         'choices'     => [
-            'on'  => esc_html__('Enable', 'stack'),
-            'off' => esc_html__('Disable', 'stack'),
+            'on'  => esc_html__('Show', 'stack'),
+            'off' => esc_html__('Hide', 'stack'),
         ],
     ]
 );
@@ -705,8 +705,8 @@ new \Kirki\Field\Checkbox_Switch(
         'section'     => 'pricing_section',
         'default'     => 'on',
         'choices'     => [
-            'on'  => esc_html__('Enable', 'stack'),
-            'off' => esc_html__('Disable', 'stack'),
+            'on'  => esc_html__('Show', 'stack'),
+            'off' => esc_html__('Hide', 'stack'),
         ],
     ]
 );
@@ -1042,43 +1042,35 @@ new \Kirki\Field\Text(
         'priority' => 10,
     ]
 );
-// Skills Section =======================
-
+// =======================
+// Portfolio Section 
+// =======================
 new \Kirki\Section(
-    'skills_section',
+    'portfolio_section',
     [
-        'title'       => esc_html__('Skills section', 'stack'),
+        'title'       => esc_html__('Portfolio section', 'stack'),
         'panel'       => 'stack_pannel',
         'priority'    => 160,
     ]
 );
 new \Kirki\Field\Checkbox_Switch(
     [
-        'settings'    => 'skills_switch_setting',
+        'settings'    => 'portfolio_switch_setting',
         'label'       => esc_html__('Show or hide this section', 'stack'),
-        'section'     => 'skills_section',
+        'section'     => 'portfolio_section',
         'default'     => 'on',
         'choices'     => [
-            'on'  => esc_html__('Enable', 'stack'),
-            'off' => esc_html__('Disable', 'stack'),
+            'on'  => esc_html__('Show', 'stack'),
+            'off' => esc_html__('Hide', 'stack'),
         ],
-    ]
-);
-
-new \Kirki\Field\Image(
-    [
-        'settings'    => 'skills_image',
-        'label'       => esc_html__('Image', 'kirki'),
-        'section'     => 'skills_section',
-        'default'     => '',
     ]
 );
 new \Kirki\Field\Text(
     [
-        'settings' => 'skills_heading', // For showing data in the frontend
-        'label'    => esc_html__('skills Heading', 'stack'),
-        'section'  => 'skills_section',
-        'default'  => esc_html__('OUR SKILL', 'stack'),
+        'settings' => 'portfolio_heading', // For showing data in the frontend
+        'label'    => esc_html__('Portfolio Heading', 'stack'),
+        'section'  => 'portfolio_section',
+        'default'  => esc_html__('OUR WORKS', 'stack'),
         'priority' => 10,
         'transport' => 'postMessage',
         'js_vars'   => [
@@ -1092,36 +1084,231 @@ new \Kirki\Field\Text(
 
 new \Kirki\Field\Textarea(
     [
-        'settings' => 'skills_desc',
-        'label'    => esc_html__('Skills Description', 'stack'),
-        'section'  => 'skills_section',
-        'default'  => esc_html__('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus architecto laudantium dolorem, aut aspernatur modi minima alias provident obcaecati! Minima odio porro nemo magnam dolore minus asperiores veniam dolorum est! Lorem ipsum dolor sit amet,', 'stack'),
+        'settings' => 'portfolio_desc',
+        'label'    => esc_html__('Portfolio Description', 'stack'),
+        'section'  => 'portfolio_section',
+        'default'  => esc_html__('A desire to help and empower others between community contributors in technology began to grow in 2020.', 'stack'),
         'priority' => 10,
     ]
 );
 new \Kirki\Field\Repeater(
     [
-        'settings'     => 'skills_repeater',
-        'label'        => esc_html__('Skills', 'kirki'),
-        'section'      => 'skills_section',
+        'settings'     => 'portfolio_repeater',
+        'label'        => esc_html__('Portfolio', 'kirki'),
+        'section'      => 'portfolio_section',
         'priority'     => 10,
         'row_label'    => [
             'type'  => 'field',
             'value' => esc_html__('Your Custom Value', 'kirki'),
-            'field' => 'skill_title',
+            'field' => 'portfolio_title',
         ],
-        'button_label' => esc_html__('Add New Skill', 'kirki'),
+        'button_label' => esc_html__('Add New Portfolio item', 'kirki'),
         'fields'       => [
-            'skill_title'   => [
+            'portfolio_title'   => [
                 'type'        => 'text',
-                'label'       => esc_html__('Skill Title', 'kirki'),
+                'label'       => esc_html__('Portfolio Title', 'kirki'),
                 'default'     => '',
             ],
-            'skill_level'    => [
-                'type'        => 'number',
-                'label'       => esc_html__('Skill Level ( Out of 100% )', 'kirki'),
+            'portfolio_small_img'    => [
+                'type'        => 'image',
+                'label'       => esc_html__('Portfolio small image', 'kirki'),
+                'default'     => '',
+            ],
+            'portfolio_big_img'    => [
+                'type'        => 'image',
+                'label'       => esc_html__('Portfolio big image', 'kirki'),
                 'default'     => '',
             ],
         ],
     ]
 );
+// ==============================
+// testomonial section 
+// ==============================
+new \Kirki\Section(
+    'testomonial_section',
+    [
+        'title'       => esc_html__('Testomonial section', 'stack'),
+        'panel'       => 'stack_pannel',
+        'priority'    => 160,
+    ]
+);
+new \Kirki\Field\Checkbox_Switch(
+    [
+        'settings'    => 'testomonial_switch_setting',
+        'label'       => esc_html__('Show or hide this section', 'stack'),
+        'section'     => 'testomonial_section',
+        'default'     => 'on',
+        'choices'     => [
+            'on'  => esc_html__('Show', 'stack'),
+            'off' => esc_html__('Hide', 'stack'),
+        ],
+    ]
+);
+
+new \Kirki\Field\Repeater(
+    [
+        'settings' => 'testomonial_repeater_settings',
+        'label'    => esc_html__('Testomonial item', 'stack'),
+        'section'  => 'testomonial_section',
+        'priority' => 10,
+        'row_label'    => [
+            'type'  => 'field',
+            'value' => esc_html__('Add new item', 'stack'),
+            'field' => 'testomonial_name',
+        ],
+        'button_label' => esc_html__('Add new testomonial item ', 'stack'),
+
+        'fields'   => [
+
+
+            'testomonial_image'   => [
+                'type'        => 'image',
+                'label'       => esc_html__('image', 'stack'),
+                'default'     => '',
+            ],
+            'testomonial_name'   => [
+                'type'        => 'text',
+                'label'       => esc_html__('Name', 'stack'),
+                'default'     => '',
+            ],
+            'testomonial_posetion'   => [
+                'type'        => 'text',
+                'label'       => esc_html__('Posetion', 'stack'),
+                'default'     => '',
+            ],
+            'testomonial_desc'   => [
+                'type'        => 'textarea',
+                'label'       => esc_html__('Description', 'stack'),
+                'default'     => '',
+            ],
+
+
+        ],
+    ]
+);
+new \Kirki\Field\Background(
+    [
+        'settings'    => 'testomonial_background',
+        'label'       => esc_html__('testomonial Background', 'stack'),
+        'section'     => 'testomonial_section',
+        'default'     => [
+            'background-color'      => 'rgba(20,20,20,.8)',
+            'background-image'      => '',
+            'background-repeat'     => 'norepeat',
+            'background-position'   => 'center center',
+            'background-size'       => 'cover',
+            'background-attachment' => 'scroll',
+        ],
+        'transport'   => 'auto',
+        'output'      => [
+            [
+                'element' => '.testimonial',
+                'property' => 'background-image'
+            ],
+        ],
+    ]
+);
+// =======================
+// Blog Section 
+// =======================
+new \Kirki\Section(
+    'blog_section',
+    [
+        'title'       => esc_html__('Blog section', 'stack'),
+        'panel'       => 'stack_pannel',
+        'priority'    => 160,
+    ]
+);
+new \Kirki\Field\Checkbox_Switch(
+    [
+        'settings'    => 'blog_switch_setting',
+        'label'       => esc_html__('Show or hide this section', 'stack'),
+        'section'     => 'blog_section',
+        'default'     => 'on',
+        'choices'     => [
+            'on'  => esc_html__('Show', 'stack'),
+            'off' => esc_html__('Hide', 'stack'),
+        ],
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings' => 'blog_heading', // For showing data in the frontend
+        'label'    => esc_html__('Blog Heading', 'stack'),
+        'section'  => 'blog_section',
+        'default'  => esc_html__('LATEST BLOG', 'stack'),
+        'priority' => 10,
+        'transport' => 'postMessage',
+        'js_vars'   => [
+            [
+                'element'  => 'section#blog h2 ',
+                'function' => 'html',
+            ],
+        ]
+    ]
+);
+
+new \Kirki\Field\Textarea(
+    [
+        'settings' => 'blog_desc',
+        'label'    => esc_html__('Blog Description', 'stack'),
+        'section'  => 'blog_section',
+        'default'  => esc_html__('A desire to help and empower others between community contributors in technology began to grow in 2020.', 'stack'),
+        'priority' => 10,
+        'transport' => 'postMessage',
+        'js_vars'   => [
+            [
+                'element'  => 'section#blog .section-header p ',
+                'function' => 'html',
+            ],
+        ]
+    ]
+);
+
+new \Kirki\Field\Number(
+    [
+        'settings' => 'blog_per_page', // For showing data in the frontend
+        'label'    => esc_html__('Blog per page', 'stack'),
+        'section'  => 'blog_section',
+        'default'  => esc_html__(3, 'stack'),
+        'priority' => 10,
+    ]
+);
+
+
+
+
+
+
+// new \Kirki\Field\Repeater(
+//     [
+//         'settings'     => 'blog_repeater',
+//         'label'        => esc_html__('Blog', 'kirki'),
+//         'section'      => 'blog_section',
+//         'priority'     => 10,
+//         'row_label'    => [
+//             'type'  => 'field',
+//             'value' => esc_html__('Your Custom Value', 'kirki'),
+//             'field' => 'blog_title',
+//         ],
+//         'button_label' => esc_html__('Add New Blog item', 'kirki'),
+//         'fields'       => [
+//             'blog_title'   => [
+//                 'type'        => 'text',
+//                 'label'       => esc_html__('Blog Title', 'kirki'),
+//                 'default'     => '',
+//             ],
+//             'blog_small_img'    => [
+//                 'type'        => 'image',
+//                 'label'       => esc_html__('Blog small image', 'kirki'),
+//                 'default'     => '',
+//             ],
+//             'blog_big_img'    => [
+//                 'type'        => 'image',
+//                 'label'       => esc_html__('Blog big image', 'kirki'),
+//                 'default'     => '',
+//             ],
+//         ],
+//     ]
+// );
