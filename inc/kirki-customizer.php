@@ -1094,29 +1094,29 @@ new \Kirki\Field\Textarea(
 new \Kirki\Field\Repeater(
     [
         'settings'     => 'portfolio_repeater',
-        'label'        => esc_html__('Portfolio', 'kirki'),
+        'label'        => esc_html__('Portfolio', 'stack'),
         'section'      => 'portfolio_section',
         'priority'     => 10,
         'row_label'    => [
             'type'  => 'field',
-            'value' => esc_html__('Your Custom Value', 'kirki'),
+            'value' => esc_html__('Your Custom Value', 'stack'),
             'field' => 'portfolio_title',
         ],
-        'button_label' => esc_html__('Add New Portfolio item', 'kirki'),
+        'button_label' => esc_html__('Add New Portfolio item', 'stack'),
         'fields'       => [
             'portfolio_title'   => [
                 'type'        => 'text',
-                'label'       => esc_html__('Portfolio Title', 'kirki'),
+                'label'       => esc_html__('Portfolio Title', 'stack'),
                 'default'     => '',
             ],
             'portfolio_small_img'    => [
                 'type'        => 'image',
-                'label'       => esc_html__('Portfolio small image', 'kirki'),
+                'label'       => esc_html__('Portfolio small image', 'stack'),
                 'default'     => '',
             ],
             'portfolio_big_img'    => [
                 'type'        => 'image',
-                'label'       => esc_html__('Portfolio big image', 'kirki'),
+                'label'       => esc_html__('Portfolio big image', 'stack'),
                 'default'     => '',
             ],
         ],
@@ -1276,39 +1276,195 @@ new \Kirki\Field\Number(
     ]
 );
 
+// =======================
+// Clients Section 
+// =======================
+new \Kirki\Section(
+    'clients_section',
+    [
+        'title'       => esc_html__('Client section', 'stack'),
+        'panel'       => 'stack_pannel',
+        'priority'    => 160,
+    ]
+);
+new \Kirki\Field\Checkbox_Switch(
+    [
+        'settings'    => 'clients_switch_setting',
+        'label'       => esc_html__('Show or hide this section', 'stack'),
+        'section'     => 'clients_section',
+        'default'     => 'on',
+        'choices'     => [
+            'on'  => esc_html__('Show', 'stack'),
+            'off' => esc_html__('Hide', 'stack'),
+        ],
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings' => 'clients_heading', // For showing data in the frontend
+        'label'    => esc_html__('Client Heading', 'stack'),
+        'section'  => 'clients_section',
+        'default'  => esc_html__('NOTABLE CLIENTS', 'stack'),
+        'priority' => 10,
+        'transport' => 'postMessage',
+        'js_vars'   => [
+            [
+                'element'  => 'div#clients h2',
+                'function' => 'html',
+            ],
+        ]
+    ]
+);
+
+new \Kirki\Field\Textarea(
+    [
+        'settings' => 'clients_desc',
+        'label'    => esc_html__('Client Description', 'stack'),
+        'section'  => 'clients_section',
+        'default'  => esc_html__('Over the last 20 years, we have helped and guided organisations to achieve outstanding results', 'stack'),
+        'priority' => 10,
+        'transport' => 'postMessage',
+        'js_vars'   => [
+            [
+                'element'  => 'div#clients.section-header p ',
+                'function' => 'html',
+            ],
+        ]
+    ]
+);
 
 
+new \Kirki\Field\Repeater(
+    [
+        'settings'     => 'clients_repeater',
+        'label'        => esc_html__('Clients logo', 'stack'),
+        'section'      => 'clients_section',
+        'priority'     => 10,
+        'row_label'    => [
+            'type'  => 'field',
+            'value' => esc_html__('Client', 'stack'),
+            'field' => '',
+        ],
+        'button_label' => esc_html__('Add New Client', 'stack'),
+        'fields'       => [
+
+            'clients_name'    => [
+                'type'        => 'text',
+                'label'       => esc_html__('Client Name', 'stack'),
+                'default'     => '',
+            ],
+            'clients_img'    => [
+                'type'        => 'image',
+                'label'       => esc_html__('Client logo', 'stack'),
+                'default'     => '',
+            ],
+        ],
+    ]
+);
+// =======================
+// Contact Section 
+// =======================
+new \Kirki\Section(
+    'contact_section',
+    [
+        'title'       => esc_html__('Contact section', 'stack'),
+        'panel'       => 'stack_pannel',
+        'priority'    => 160,
+    ]
+);
+new \Kirki\Field\Checkbox_Switch(
+    [
+        'settings'    => 'contact_switch_setting',
+        'label'       => esc_html__('Show or hide this section', 'stack'),
+        'section'     => 'contact_section',
+        'default'     => 'on',
+        'choices'     => [
+            'on'  => esc_html__('Show', 'stack'),
+            'off' => esc_html__('Hide', 'stack'),
+        ],
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings' => 'contact_heading', // For showing data in the frontend
+        'label'    => esc_html__('Contact Heading', 'stack'),
+        'section'  => 'contact_section',
+        'default'  => esc_html__('We\'re a friendly bunch..', 'stack'),
+        'priority' => 10,
+        'transport' => 'postMessage',
+        'js_vars'   => [
+            [
+                'element'  => '.contact-title h1',
+                'function' => 'html',
+            ],
+        ]
+    ]
+);
+
+new \Kirki\Field\Textarea(
+    [
+        'settings' => 'contact_desc',
+        'label'    => esc_html__('Contact Description', 'stack'),
+        'section'  => 'contact_section',
+        'default'  => esc_html__('We create projects for companies and startups with a passion for quality', 'stack'),
+        'priority' => 10,
+        'transport' => 'postMessage',
+        'js_vars'   => [
+            [
+                'element'  => '.contact-title p ',
+                'function' => 'html',
+            ],
+        ]
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings' => 'contact_title', // For showing data in the frontend
+        'label'    => esc_html__('Contact Title', 'stack'),
+        'section'  => 'contact_section',
+        'default'  => esc_html__('CONTACT US', 'stack'),
+        'priority' => 10,
+        'transport' => 'postMessage',
+        'js_vars'   => [
+            [
+                'element'  => '.contact-right-area h2',
+                'function' => 'html',
+            ],
+        ]
+    ]
+);
+
+new \Kirki\Field\Repeater(
+    [
+        'settings'     => 'contact_repeater',
+        'label'        => esc_html__('Contacts item', 'stack'),
+        'section'      => 'contact_section',
+        'priority'     => 10,
+        'row_label'    => [
+            'type'  => 'field',
+            'value' => esc_html__('Contac item', 'stack'),
+            'field' => 'contact_info',
+        ],
+        'button_label' => esc_html__('Add New Contact', 'stack'),
+        'fields'       => [
+            'contact_logo'    => [
+                'type'        => 'select',
+                'label'       => esc_html__('Contact logo', 'stack'),
+                'default'     => 'lni-map-marker',
+                'choices'     => [
+                    'lni-map-marker' => esc_html__('map', 'kirki'),
+                    'lni-envelope' => esc_html__('envelope', 'kirki'),
+                    'lni-phone-handset' => esc_html__('phone', 'kirki'),
 
 
+                ],
+            ],
+            'contact_info'    => [
+                'type'        => 'text',
+                'label'       => esc_html__('Contact Information', 'stack'),
+                'default'     => '',
+            ],
 
-// new \Kirki\Field\Repeater(
-//     [
-//         'settings'     => 'blog_repeater',
-//         'label'        => esc_html__('Blog', 'kirki'),
-//         'section'      => 'blog_section',
-//         'priority'     => 10,
-//         'row_label'    => [
-//             'type'  => 'field',
-//             'value' => esc_html__('Your Custom Value', 'kirki'),
-//             'field' => 'blog_title',
-//         ],
-//         'button_label' => esc_html__('Add New Blog item', 'kirki'),
-//         'fields'       => [
-//             'blog_title'   => [
-//                 'type'        => 'text',
-//                 'label'       => esc_html__('Blog Title', 'kirki'),
-//                 'default'     => '',
-//             ],
-//             'blog_small_img'    => [
-//                 'type'        => 'image',
-//                 'label'       => esc_html__('Blog small image', 'kirki'),
-//                 'default'     => '',
-//             ],
-//             'blog_big_img'    => [
-//                 'type'        => 'image',
-//                 'label'       => esc_html__('Blog big image', 'kirki'),
-//                 'default'     => '',
-//             ],
-//         ],
-//     ]
-// );
+        ],
+    ]
+);
