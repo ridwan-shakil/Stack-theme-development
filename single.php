@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <a href="<?php echo esc_url(home_url(), 'stack'); ?>" class="navbar-brand"><img src="<?php echo esc_url(the_custom_logo(), 'stack'); ?>" alt=""></a>
+        <a href="<?php echo esc_url(home_url(), 'stack'); ?>" class="navbar-brand"><?php echo esc_url(the_custom_logo(), 'stack'); ?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <i class="lni-menu"></i>
         </button>

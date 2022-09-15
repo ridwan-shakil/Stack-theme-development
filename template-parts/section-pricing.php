@@ -17,7 +17,7 @@
                         <div class="pricing-header">
                             <p class="price-value"><?php echo esc_html(get_theme_mod('basic_currency') . get_theme_mod('basic_value'), 'stack'); ?><span>/<?php echo esc_html(get_theme_mod('basic_duration'), 'stack'); ?></span></p>
                         </div>
-                        <?php $multicheck_value = esc_html(get_theme_mod('basic_featurs'), 'stack'); ?>
+                        <?php $multicheck_value = get_theme_mod('basic_featurs'); ?>
                         <?php if (!empty($multicheck_value)) : ?>
                             <ul class="description">
                                 <?php foreach ($multicheck_value as $checked_value) : ?>
@@ -38,7 +38,7 @@
                         <div class="pricing-header">
                             <p class="price-value"><?php echo esc_html(get_theme_mod('professonal_currency') . get_theme_mod('professonal_value'), 'stack'); ?><span>/ <?php echo esc_html(get_theme_mod('professonal_duration'), 'stack'); ?></span></p>
                         </div>
-                        <?php $multicheck_value = esc_html(get_theme_mod('professonal_featurs'), 'stack'); ?>
+                        <?php $multicheck_value = get_theme_mod('professonal_featurs'); ?>
                         <?php if (!empty($multicheck_value)) : ?>
                             <ul class="description">
                                 <?php foreach ($multicheck_value as $checked_value) : ?>
@@ -58,7 +58,7 @@
                         <div class="pricing-header">
                             <p class="price-value"><?php echo esc_html(get_theme_mod('Expert_currency') . get_theme_mod('Expert_value'), 'stack'); ?><span>/ <?php echo esc_html(get_theme_mod('Expert_duration'), 'stack'); ?></span></p>
                         </div>
-                        <?php $multicheck_value = esc_html(get_theme_mod('Expert_featurs'), 'stack'); ?>
+                        <?php $multicheck_value = get_theme_mod('Expert_featurs'); ?>
                         <?php if (!empty($multicheck_value)) : ?>
                             <ul class="description">
                                 <?php foreach ($multicheck_value as $checked_value) : ?>

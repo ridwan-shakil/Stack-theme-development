@@ -29,7 +29,7 @@
 
                                     <div class="single-contact">
                                         <div class="contact-icon">
-                                            <i class="<?php echo esc_url($contact['contact_logo'], 'stack'); ?>"></i>
+                                            <i class="<?php echo esc_attr($contact['contact_logo'], 'stack'); ?>"></i>
                                         </div>
                                         <p><?php echo esc_html($contact['contact_info'], 'stack'); ?></p>
                                     </div>

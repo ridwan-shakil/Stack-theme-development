@@ -1,5 +1,7 @@
 <?php
 require_once(get_theme_file_path('/inc/kirki-customizer.php'));
+require_once(get_theme_file_path('/inc/stack-activation.php'));
+
 function  stack_setup_theme()
 {
     load_theme_textdomain('stack', get_template_directory_uri() . '/languages');
@@ -11,55 +13,40 @@ function  stack_setup_theme()
         'main-menu' => __('Main Menu', 'stack'),
 
     ));
-    // Add default posts and comments RSS feed links to head.
-    add_theme_support('automatic-feed-links');
-    /**
-     * Add post-formats support.
-     */
-    add_theme_support(
-        'post-formats',
-        array(
-            'link',  'aside', 'gallery', 'image', 'quote', 'status', 'video', 'audio', 'chat',
-        )
-    );
-
-    /*
-		 * Switch default core markup for search form, comment form, and comments
-		 * to output valid HTML5.
-		 */
-    add_theme_support(
-        'html5',
-        array(
-            'comment-form', 'comment-list',  'gallery', 'caption',  'style', 'script', 'navigation-widgets',
-        )
-    );
-    /*
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
-    $logo_width  = 300;
-    $logo_height = 100;
-
-    add_theme_support(
-        'custom-logo',
-        array(
-            'height'               => $logo_height,
-            'width'                => $logo_width,
-            'flex-width'           => true,
-            'flex-height'          => true,
-            'unlink-homepage-logo' => true,
-        )
-    );
-    // Custom background color.
-    add_theme_support(
-        'custom-background',
-        array(
-            'default-color' => 'd1e4dd',
-        )
-    );
 }
 add_action('after_setup_theme', 'stack_setup_theme');
+
+function mytheme_setup_theme_supported_features()
+{
+    add_theme_support('editor-color-palette', array(
+        array(
+            'name'  => esc_attr__('strong magenta', 'themeLangDomain'),
+            'slug'  => 'strong-magenta',
+            'color' => '#a156b4',
+        ),
+        array(
+            'name'  => esc_attr__('light grayish magenta', 'themeLangDomain'),
+            'slug'  => 'light-grayish-magenta',
+            'color' => '#d0a5db',
+        ),
+        array(
+            'name'  => esc_attr__('very light gray', 'themeLangDomain'),
+            'slug'  => 'very-light-gray',
+            'color' => '#eee',
+        ),
+        array(
+            'name'  => esc_attr__('very dark gray', 'themeLangDomain'),
+            'slug'  => 'very-dark-gray',
+            'color' => '#444',
+        ),
+    ));
+}
+
+add_action('after_setup_theme', 'mytheme_setup_theme_supported_features');
+
+
+
+
 
 function stack_scripts()
 {
@@ -67,7 +54,9 @@ function stack_scripts()
     wp_enqueue_style('bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css');
     wp_enqueue_style('fonts', get_template_directory_uri() . '/assets/fonts/line-icons.css');
     // wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');
-    wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+    // wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+    wp_enqueue_style('slicknav', get_template_directory_uri() . '/assets/css/fontawesome.min.css');
+
 
     wp_enqueue_style('slicknav', get_template_directory_uri() . '/assets/css/slicknav.css');
     wp_enqueue_style('carousel', get_template_directory_uri() . '/assets/css/owl.carousel.min.css');

@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-5 col-xs-12">
-                <p class="float-right"><?php echo esc_html(get_theme_mod('copyright_setting'), 'stack'); ?></p>
+                <?php echo get_theme_mod('copyright_setting'); ?>
             </div>
         </div>
     </div>
