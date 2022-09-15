@@ -3,12 +3,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-xs-12 wow fadeInLeft" data-wow-delay="0.3s">
-                    <img class="img-fluid" src="<?php echo get_theme_mod('skills_image') ?>" alt="">
+                    <img class="img-fluid" src="<?php echo esc_url(get_theme_mod('skills_image'), 'stack'); ?>" alt="">
                 </div>
                 <div class="col-lg-6 col-md-12 col-xs-12 info wow fadeInRight" data-wow-delay="0.3s">
                     <div class="site-heading">
-                        <h2 class="section-title"><?php echo get_theme_mod('skills_heading'); ?></span></h2>
-                        <p><?php echo get_theme_mod('skills_desc'); ?>
+                        <h2 class="section-title"><?php echo esc_html(get_theme_mod('skills_heading'), 'stack'); ?></span></h2>
+                        <p><?php echo esc_html(get_theme_mod('skills_desc'), 'stack'); ?>
                         </p>
                     </div>
                     <div class="skills-section">
@@ -18,7 +18,7 @@
                             <?php foreach ($skills as $skill) : ?>
 
                                 <div class="progress-box">
-                                    <h5><?php echo $skill['skill_title']; ?><span class="pull-right"><?php echo " " . $skill['skill_level']; ?>%</span></h5>
+                                    <h5><?php echo esc_html($skill['skill_title'], 'stack'); ?><span class="pull-right"><?php echo " " . $skill['skill_level']; ?>%</span></h5>
                                     <div class="progress" style="opacity: 1; left: 0px;">
                                         <div class="progress-bar" role="progressbar" data-width="87" style="width: <?php echo $skill['skill_level']; ?>%;"></div>
                                     </div>

@@ -4,8 +4,8 @@
         <!-- Container Starts -->
         <div class="container">
             <div class="section-header text-center">
-                <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s"><?php echo get_theme_mod('portfolio_heading') ?></h2>
-                <p><?php echo get_theme_mod('portfolio_desc') ?></p>
+                <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s"><?php echo esc_html(get_theme_mod('portfolio_heading'), 'stacK'); ?></h2>
+                <p><?php echo esc_html(get_theme_mod('portfolio_desc'), 'stack'); ?></p>
             </div>
 
             <!-- Portfolio Recent Projects -->
@@ -23,9 +23,9 @@
                                         <div class="fancy-table">
                                             <div class="table-cell">
                                                 <div class="zoom-icon">
-                                                    <a class="lightbox" href="<?php echo $setting['portfolio_big_img'] ?>"><i class="lni-eye item-icon"></i></a>
+                                                    <a class="lightbox" href="<?php echo esc_url($setting['portfolio_big_img'], 'stack'); ?>"><i class="lni-eye item-icon"></i></a>
                                                 </div>
-                                                <a href=""><?php echo $setting['portfolio_title'] ?></a>
+                                                <a href=""><?php echo esc_html($setting['portfolio_title'], 'stack'); ?></a>
                                             </div>
                                         </div>
                                     </div>

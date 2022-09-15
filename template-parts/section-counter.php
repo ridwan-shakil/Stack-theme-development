@@ -9,22 +9,23 @@
                         <?php
                         $settings = get_theme_mod('counter_repeater_settings');
                         ?>
-                        <?php foreach ($settings as $setting) : ?>
-                            <!-- Start counter -->
-                            <div class="col-lg-3 col-md-6 col-xs-12">
-                                <div class="counter-box wow fadeInUp" data-wow-delay="0.2s">
-                                    <div class="icon-o">
-                                        <i class="<?php echo $setting['counter_icon'] ?>"></i>
-                                    </div>
-                                    <div class="fact-count">
-                                        <h3><span class="counter"><?php echo $setting['counter_number'] ?></span></h3>
-                                        <p><?php echo $setting['counter_title'] ?></p>
+                        <?php if ($settings) : ?>
+                            <?php foreach ($settings as $setting) : ?>
+                                <!-- Start counter -->
+                                <div class="col-lg-3 col-md-6 col-xs-12">
+                                    <div class="counter-box wow fadeInUp" data-wow-delay="0.2s">
+                                        <div class="icon-o">
+                                            <i class="<?php echo $setting['counter_icon'] ?>"></i>
+                                        </div>
+                                        <div class="fact-count">
+                                            <h3><span class="counter"><?php echo $setting['counter_number'] ?></span></h3>
+                                            <p><?php echo $setting['counter_title'] ?></p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- End counter -->
-                        <?php endforeach; ?>
-
+                                <!-- End counter -->
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

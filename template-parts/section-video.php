@@ -6,12 +6,12 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12">
                     <div class="video-promo-content text-center wow fadeInUp" data-wow-delay="0.3s">
-                        <a href="<?php echo get_theme_mod('video_url_setting'); ?>" class="video-popup"><i class="lni-film-play"></i></a>
+                        <a href="<?php echo esc_url(get_theme_mod('video_url_setting'), 'stack'); ?>" class="video-popup"><i class="lni-film-play"></i></a>
 
 
 
 
-                        <h2 class="mt-3 wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms"><?php echo get_theme_mod('video_text'); ?></h2>
+                        <h2 class="mt-3 wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms"><?php echo esc_html(get_theme_mod('video_text'), 'stack'); ?></h2>
                     </div>
                 </div>
             </div>

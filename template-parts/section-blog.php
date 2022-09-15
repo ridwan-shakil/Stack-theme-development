@@ -4,8 +4,8 @@
         <!-- Container Starts -->
         <div class="container">
             <div class="section-header text-center">
-                <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s"><?php echo get_theme_mod('blog_heading') ?></h2>
-                <p><?php echo get_theme_mod('blog_desc') ?></p>
+                <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s"><?php echo esc_html(get_theme_mod('blog_heading'), 'stack'); ?></h2>
+                <p><?php echo esc_html(get_theme_mod('blog_desc'), 'stack'); ?></p>
             </div>
             <div class="row">
                 <?php
@@ -24,18 +24,18 @@
                             <!-- Blog Item Starts -->
                             <div class="blog-item-wrapper wow fadeInLeft" data-wow-delay="0.3s">
                                 <div class="blog-item-img">
-                                    <a href="single-post.html">
+                                    <a href="<?php the_permalink(); ?>">
                                         <img src="<?php the_post_thumbnail_url() ?>" alt="">
                                     </a>
                                 </div>
                                 <div class="blog-item-text">
                                     <h3>
-                                        <a href="single-post.html"><?php the_title() ?></a>
+                                        <a href="<?php the_permalink(); ?>"><?php the_title() ?></a>
                                     </h3>
                                     <p>
                                         <?php the_excerpt() ?>
                                     </p>
-                                    <a href="<?php the_permalink(); ?>" class="btn btn-common btn-rm">Read More</a>
+                                    <a href="<?php the_permalink(); ?>" class="btn btn-common btn-rm"><?php echo esc_html('Read More', 'stack'); ?></a>
                                 </div>
                             </div>
                             <!-- Blog Item Wrapper Ends-->

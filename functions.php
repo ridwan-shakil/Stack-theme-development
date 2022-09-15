@@ -11,6 +11,53 @@ function  stack_setup_theme()
         'main-menu' => __('Main Menu', 'stack'),
 
     ));
+    // Add default posts and comments RSS feed links to head.
+    add_theme_support('automatic-feed-links');
+    /**
+     * Add post-formats support.
+     */
+    add_theme_support(
+        'post-formats',
+        array(
+            'link',  'aside', 'gallery', 'image', 'quote', 'status', 'video', 'audio', 'chat',
+        )
+    );
+
+    /*
+		 * Switch default core markup for search form, comment form, and comments
+		 * to output valid HTML5.
+		 */
+    add_theme_support(
+        'html5',
+        array(
+            'comment-form', 'comment-list',  'gallery', 'caption',  'style', 'script', 'navigation-widgets',
+        )
+    );
+    /*
+		 * Add support for core custom logo.
+		 *
+		 * @link https://codex.wordpress.org/Theme_Logo
+		 */
+    $logo_width  = 300;
+    $logo_height = 100;
+
+    add_theme_support(
+        'custom-logo',
+        array(
+            'height'               => $logo_height,
+            'width'                => $logo_width,
+            'flex-width'           => true,
+            'flex-height'          => true,
+            'unlink-homepage-logo' => true,
+        )
+    );
+    // Custom background color.
+    add_theme_support(
+        'custom-background',
+        array(
+            'default-color' => 'd1e4dd',
+        )
+    );
 }
 add_action('after_setup_theme', 'stack_setup_theme');
 
@@ -65,14 +112,14 @@ function move_comment_field($fields)
 add_filter('comment_form_fields', 'move_comment_field');
 
 // Change default fields, add "placeholder" and change type attributes.
-function Halim_comment_placeholders($fields)
+function stack_comment_placeholders($fields)
 {
     $fields['author'] = str_replace(
         '<input',
         '<input placeholder="'
-            . _x(
+            . __(
                 'Name',
-                'halim'
+                'stack'
             )
             . '"',
         $fields['author']
@@ -95,14 +142,14 @@ function Halim_comment_placeholders($fields)
 
     return $fields;
 }
-add_filter('comment_form_default_fields', 'Halim_comment_placeholders');
+add_filter('comment_form_default_fields', 'stack_comment_placeholders');
 
 //  add placeholder text to comment field
 function placeholder_comment_form_field($fields)
 {
-    $replace_comment = __('Your Comment', 'halim');
+    $replace_comment = __('Your Comment', 'stack');
 
-    $fields['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . _x('Comment', 'noun') .
+    $fields['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . __('Comment', 'stack') .
         '</label><textarea id="comment" name="comment" cols="45" rows="6" placeholder="' . $replace_comment . '" aria-required="true"></textarea></p>';
 
     return $fields;
@@ -113,9 +160,9 @@ function stack_theme_widget_init()
 {
     // Right sidebar
     register_sidebar(array(
-        'name'           => __('Right sidebar', 'textdomain'),
+        'name'           => __('Right sidebar', 'stack'),
         'id'             => 'right-sidebar',
-        'description'    => __('Widgets in this area will be shown on the right side', 'halim'),
+        'description'    => __('Widgets in this area will be shown on the right side', 'stack'),
         'before_widget'  => '<div class="widgets">',
         'after_widget'   => '</div>',
         'before_title'   => '<h4>',

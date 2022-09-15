@@ -3,8 +3,8 @@ new \Kirki\Panel(
     'stack_pannel',
     [
         'priority'    => 10,
-        'title'       => esc_html__('Stack Panel', 'stack'),
-        'description' => esc_html__('Stack Theme options are here.', 'stack'),
+        'title'       => esc_html__('stack Panel', 'stack'),
+        'description' => esc_html__('stack Theme options are here.', 'stack'),
     ]
 );
 
@@ -15,12 +15,11 @@ new \Kirki\Section(
     'banner_section',
     [
         'title'       => esc_html__('Banner section', 'stack'),
-        'description' => esc_html__('Banner Section Description.', 'stack'),
         'panel'       => 'stack_pannel',
         'priority'    => 160,
     ]
 );
-new \Kirki\Field\Text(
+new \Kirki\Field\Textarea(
     [
         'settings' => 'banner_heading', // For showing data in the frontend
         'label'    => esc_html__('Banner Title', 'stack'),
@@ -39,8 +38,8 @@ new \Kirki\Field\Text(
 new \Kirki\Field\Typography(
     [
         'settings'    => 'typography_setting',
-        'label'       => esc_html__('Typography Control', 'stack'),
-        'description' => esc_html__('The full set of options.', 'stack'),
+        'label'       => esc_html__('Typography of banner heading', 'stack'),
+        // 'description' => esc_html__('The full set of options.', 'stack'),
         'section'     => 'banner_section',
         'priority'    => 10,
         'transport'   => 'auto',
@@ -64,6 +63,24 @@ new \Kirki\Field\Typography(
     ]
 );
 // Banner button text 
+
+new \Kirki\Field\Generic(
+    [
+        'settings'    => 'generic_custom_setting',
+        // 'label'       => esc_html__('Custom input Control.', 'stack'),
+        // 'description' => esc_html__('The "generic" control allows you to add any input type you want. In this case we use type="password" and define custom styles.', 'stack'),
+        'section'     => 'banner_section',
+        'default'     => '',
+        'choices'     => [
+            'element'  => 'br',
+            // 'type'     => 'password',
+            // 'style'    => 'background-color:black;color:red;',
+            'data-foo' => 'bar',
+        ],
+    ]
+);
+
+
 new \Kirki\Field\Text(
     [
         'settings' => 'banner_button_text',
@@ -93,7 +110,7 @@ new \Kirki\Field\URL(
 new \Kirki\Field\Image(
     [
         'settings'    => 'banner_image',
-        'label'       => esc_html__('Image Control', 'stack'),
+        'label'       => esc_html__('Banner Image', 'stack'),
         'section'     => 'banner_section',
         'default'     => '',
 
@@ -1452,9 +1469,9 @@ new \Kirki\Field\Repeater(
                 'label'       => esc_html__('Contact logo', 'stack'),
                 'default'     => 'lni-map-marker',
                 'choices'     => [
-                    'lni-map-marker' => esc_html__('map', 'kirki'),
-                    'lni-envelope' => esc_html__('envelope', 'kirki'),
-                    'lni-phone-handset' => esc_html__('phone', 'kirki'),
+                    'lni-map-marker' => esc_html__('map', 'stack'),
+                    'lni-envelope' => esc_html__('envelope', 'stack'),
+                    'lni-phone-handset' => esc_html__('phone', 'stack'),
 
 
                 ],
@@ -1468,38 +1485,73 @@ new \Kirki\Field\Repeater(
         ],
     ]
 );
-
+//  contact form 7
 new \Kirki\Field\Text(
     [
         'settings' => 'contact_form', // For showing data in the frontend
         'label'    => esc_html__('Contact form shortcode', 'stack'),
         'section'  => 'contact_section',
-        'default'  => esc_html__('[contact-form-7 id="87" title="Contact form 1"]', 'stack'),
+        'default'  => '[contact-form-7 id="87" title="Contact form 1"]',
         'priority' => 10,
-        // 'transport' => 'postMessage',
-        // 'js_vars'   => [
-        //     [
-        //         'element'  => '',
-        //         'function' => 'html',
-        //     ],
-        // ]
     ]
 );
+
+// =======================
+// Footer Section 
+// =======================
+new \Kirki\Section(
+    'footer_section',
+    [
+        'title'       => esc_html__('Footer section', 'stack'),
+        'panel'       => 'stack_pannel',
+        'priority'    => 160,
+    ]
+);
+new \Kirki\Field\Url(
+    [
+        'settings' => 'footer_fb_url', // For showing data in the frontend
+        'label'    => esc_html__('Facebook url', 'stack'),
+        'section'  => 'footer_section',
+    ]
+);
+new \Kirki\Field\Url(
+    [
+        'settings' => 'footer_twitter_url', // For showing data in the frontend
+        'label'    => esc_html__('Twitter url', 'stack'),
+        'section'  => 'footer_section',
+    ]
+);
+new \Kirki\Field\Url(
+    [
+        'settings' => 'footer_insta_url', // For showing data in the frontend
+        'label'    => esc_html__('Instagram url', 'stack'),
+        'section'  => 'footer_section',
+    ]
+);
+new \Kirki\Field\Url(
+    [
+        'settings' => 'footer_linkedin_url', // For showing data in the frontend
+        'label'    => esc_html__('Linkedin url', 'stack'),
+        'section'  => 'footer_section',
+    ]
+);
+new \Kirki\Field\Editor(
+    [
+        'settings'    => 'copyright_setting',
+        'label'       => esc_html__('Enter copyright text', 'stack'),
+        'section'     => 'footer_section',
+        'default'     => 'Developed by Md.Ridwan',
+    ]
+);
+
+
+
 
 // =======================
 // Theme settings color 
 // =======================
 
 //colors
-new \Kirki\Field\Color(
-    [
-        'settings'    => 'stack_background_color',
-        'label'       => esc_html__('Background Color', 'stack'),
-        'section'     => 'colors',
-        'default'     => '#ffffff',
-        'priority'    => 20,
-    ]
-);
 new \Kirki\Field\Color(
     [
         'settings'    => 'stack_primery_color',
@@ -1516,14 +1568,14 @@ new \Kirki\Field\Color(
 new \Kirki\Section(
     'typography_options',
     [
-        'title'       => esc_html__('Typography', 'stack'),
+        'title'       => __('Typography', 'stack'),
         'priority'    => 52,
     ]
 );
 new \Kirki\Field\Typography(
     [
         'settings'    => 'stack_headings_font',
-        'label'       => esc_html__('All heading text', 'kirki'),
+        'label'       => __('All heading text', 'stack'),
         'section'     => 'typography_options',
         'priority'    => 10,
         'transport'   => 'auto',
@@ -1544,13 +1596,9 @@ function stack_theme_css()
 {
 ?>
     <style>
-        body {
-            background-color: <?php echo get_theme_mod('stack_background_color'); ?>
-        }
-
         :root {
-            --primery: <?php echo get_theme_mod('stack_primery_color'); ?>;
-            --headingfont: <?php echo get_theme_mod('stack_headings_font'); ?>
+            --primery: <?php echo esc_html(get_theme_mod('stack_primery_color'), 'stack'); ?>;
+            --headingfont: <?php echo  esc_html(get_theme_mod('stack_headings_font'), 'stack'); ?>
         }
     </style>
 
