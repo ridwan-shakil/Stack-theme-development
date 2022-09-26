@@ -1,0 +1,33 @@
+<div id="contactForm">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                [text* name id:name class:form-control placeholder "Name"]
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                [email* emai id:email class:form-control placeholder "Email"]
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                [text* text-564 id:msg_subject class:form-control placeholder "Subject"]
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                [textarea* textarea-170 id:message class:form-control placeholder "Youre messege"]
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="submit-button">
+                [submit id:form-submit class:btn class:btn-common "Send Message"]
+                <div id="msgSubmit" class="h3 text-center hidden"></div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
